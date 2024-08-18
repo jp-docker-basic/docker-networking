@@ -53,3 +53,11 @@ Now, attach “busybox1” and “busybox2” to the same network:
 > docker network connect my_bridge busybox2
 
 We can conclude that only user-defined bridge networks support `automatic service discovery`. If you need to use service discovery with containers, don’t use the `default bridge`, create a new one.
+
+**Note: important command**
+
+#### - For Root user
+> whoami 
+
+#### - Host ip address
+> hostname -i 
