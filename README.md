@@ -1,6 +1,6 @@
 # What Is a Docker Network?
 
-Networking is about communication among processes, and Docker’s networking is no different. 
+Networking is about communication among processes, and Docker’s networking is no different.
 
 Docker networking is primarily used to establish communication between Docker containers and the outside world via the host machine where the Docker daemon is running.
 
@@ -12,3 +12,30 @@ Let’s look at some examples of how a `bridge network` driver works.
 
 - Check the available network by running the `docker network ls` command
 - Start two `busybox` containers named `busybox1` and `busybox2` in detached mode by passing the `-dit` flag.
+
+```Dockerfile
+$ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+5077a7b25ae6   bridge    bridge    local
+7e25f334b07f   host      host      local
+475e50be0fe0   none      null      local
+```
+
+```dockerfile
+docker run -dit --name busybox1 busybox /bin/sh
+docker run -dit --name busybox2 busybox /bin/sh
+```
+- Run the `docker ps` command to verify that containers are up and running.
+
+```Dockerfile
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND     CREATED          STATUS          PORTS     NAMES
+9e6464e82c4c   busybox   "/bin/sh"   5 seconds ago    Up 5 seconds              busybox2
+7fea14032748   busybox   "/bin/sh"   26 seconds ago   Up 26 seconds             busybox1
+```
+
+- Verify that the containers are attached to the bridge network.
+
+```Dockerfile
+$ docker network inspect bridge 
+```
