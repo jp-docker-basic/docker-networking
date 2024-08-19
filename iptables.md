@@ -71,3 +71,20 @@ The options work this way:
 - `--dport`: Specifies the destination port.
 - `-j jump`: Performs the action.
 
+### Control traffic by IP address
+
+Use the following command to accept traffic from a specific IP address.
+
+> sudo iptables -A INPUT -s your_IP_address_to_authorise -j ACCEPT
+
+Replace the IP address in the command with the IP address you want to authorise.
+
+You can also block traffic from an IP address:
+
+> sudo iptables -A INPUT -s your_IP_address_to_block -j DROP
+
+Replace the IP address in the command with the IP address you want to block.
+
+You can reject traffic from an IP address range with the following command:
+
+> sudo iptables -A INPUT -m iprange --src-range your_start_IP_address-your_end_IP_address -j REJECT
