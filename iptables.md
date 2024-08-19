@@ -38,3 +38,11 @@ To display all of the current rules on your server, enter the following command 
 ```bash
 sudo iptables -L
 ```
+
+### Allow traffic on localhost
+
+To allow traffic from your own system (the localhost), add the input string by entering the following:
+
+```bash
+sudo iptables -A INPUT -i lo -j ACCEPT
+```
