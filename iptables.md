@@ -103,3 +103,12 @@ If you are defining `iptables firewall rules`, you must prevent unauthorised acc
 
 The -A option adds a new rule to the string. If a connection goes through ports other than those you have defined, it will be discontinued.
 
+### Delete a rule
+
+A more precise method is to delete the line number of a rule.
+
+> sudo iptables -P INPUT DROP
+
+First, list all rules by entering the following:
+
+> sudo iptables -L --line-numbers
