@@ -46,3 +46,28 @@ To allow traffic from your own system (the localhost), add the input string by e
 ```bash
 sudo iptables -A INPUT -i lo -j ACCEPT
 ```
+
+This command configures the `firewall` to accept traffic for the `localhost (lo)` `interface (-i)`. From now on, everything that comes from your system will pass through your firewall. You must set this rule to allow applications to communicate with the localhost interface.
+
+### Allow traffic on specific ports
+
+These rules allow traffic on the different ports that you specify using the commands listed below. A port is a communication endpoint specified for a specific type of data.
+
+To allow HTTP Web traffic, enter the following command:
+
+> sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+To allow only inbound SSH (Secure Shell) traffic, enter the following (note that we use the default `SSH` port number `22`. If your port number is different, make sure to adjust the commands accordingly):
+
+> sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+To allow HTTPS Internet traffic, enter the following command:
+
+> sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+The options work this way:
+
+- `-p`: Checks the specified protocol (tcp).
+- `--dport`: Specifies the destination port.
+- `-j jump`: Performs the action.
+
