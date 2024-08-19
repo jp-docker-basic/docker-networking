@@ -94,3 +94,12 @@ The iptables options we used in the examples work as follows:
 - `-m`: Matches the specified option.
 - `-iprange`: Instructs the system to wait for a range of IP addresses instead of one.
 - `--src-range`: Identifies the IP address range.
+
+### Delete unwanted traffic
+
+If you are defining `iptables firewall rules`, you must prevent unauthorised access by removing all traffic from other ports:
+
+> sudo iptables -A INPUT -j DROP
+
+The -A option adds a new rule to the string. If a connection goes through ports other than those you have defined, it will be discontinued.
+
