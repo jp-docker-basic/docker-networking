@@ -88,3 +88,9 @@ Replace the IP address in the command with the IP address you want to block.
 You can reject traffic from an IP address range with the following command:
 
 > sudo iptables -A INPUT -m iprange --src-range your_start_IP_address-your_end_IP_address -j REJECT
+
+The iptables options we used in the examples work as follows:
+
+- `-m`: Matches the specified option.
+- `-iprange`: Instructs the system to wait for a range of IP addresses instead of one.
+- `--src-range`: Identifies the IP address range.
