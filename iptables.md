@@ -112,3 +112,15 @@ A more precise method is to delete the line number of a rule.
 First, list all rules by entering the following:
 
 > sudo iptables -L --line-numbers
+
+Locate the line for the firewall rule you want to remove and run this command:
+
+```bash
+sudo iptables -D INPUT <Number>
+```
+Replace Number with the rule line number you want to delete.
+
+### Save your changes
+When the system is restarted, iptables does not keep the rules you created. Whenever you configure iptables on Linux, any changes you make apply only until the next reboot.
+
+To save rules to Ubuntu-based systems, first, you must log in as the root user using the sudo su command:
