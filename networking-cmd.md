@@ -58,3 +58,21 @@ In this example:
 
 - `--subnet=192.168.1.0/24` specifies the subnet for the new `IPAM` configuration. You can adjust the subnet to match your network requirements.
 - `my-custom-network` is the name given to the Docker network for which you are creating the custom `IPAM` configuration.
+
+After running the `docker network create-ipam` command, Docker will create a new IPAM configuration with the specified subnet for the `my-custom-network` Docker network. 
+
+### Docker network connect-ipam:
+
+The `docker network connect-ipam` command is used to connect a container to a Docker network with a custom IP address management (IPAM) configuration. 
+
+IPAM allows you to define specific IP address ranges, subnets, gateways, and other network settings.
+
+```
+docker network connect-ipam --ip=192.168.1.10 my-custom-network my-container
+```
+
+In this example:
+
+- `--ip=192.168.1.10` specifies the IP address that you want to assign to the container on the connected network. You can adjust the IP address as needed.
+- `my-custom-network` is the name of the Docker network with a custom IPAM configuration to which you want to connect the container.
+- `my-container` is the name or ID of the container you want to connect to the network.
