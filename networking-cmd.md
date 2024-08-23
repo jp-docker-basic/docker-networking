@@ -21,3 +21,24 @@ In this example:
 - `--gateway 172.18.0.1`: Specifies the gateway IP address for the network.
 - `--ip-range 172.18.0.0/24`: Defines the range of IP addresses that can be assigned to containers on this network.
 - `my-custom-network`: The name given to the network.
+
+## Connect a Container to a Network:
+To connect a Docker container to a network, you can use the docker network connect command followed by the network name and the container name or ID.
+
+> docker network connect my-network my-container
+
+In this example:
+
+- `my-network` is the name of the network to which you want to connect the container.
+- `my-container` is the name or ID of the container you want to connect to the network.
+
+
+### Docker network prune:
+
+The docker network prune command is used to remove all unused Docker networks from your system.
+
+> docker network prune
+
+If you want to skip the confirmation prompt, you can use the -f or --force option:
+
+> docker network prune -f
