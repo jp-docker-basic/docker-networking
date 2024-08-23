@@ -14,6 +14,7 @@ docker network create \
   --ip-range 172.18.0.0/24 \
   my-custom-network
 ```
+
 In this example:
 
 - `--driver bridge`: Specifies the network driver as bridge. You can use other drivers like overlay, macvlan, etc., based on your requirements.
@@ -23,6 +24,7 @@ In this example:
 - `my-custom-network`: The name given to the network.
 
 ## Connect a Container to a Network:
+
 To connect a Docker container to a network, you can use the docker network connect command followed by the network name and the container name or ID.
 
 > docker network connect my-network my-container
@@ -31,7 +33,6 @@ In this example:
 
 - `my-network` is the name of the network to which you want to connect the container.
 - `my-container` is the name or ID of the container you want to connect to the network.
-
 
 ### Docker network prune:
 
@@ -42,3 +43,18 @@ The docker network prune command is used to remove all unused Docker networks fr
 If you want to skip the confirmation prompt, you can use the -f or --force option:
 
 > docker network prune -f
+
+### Docker network create-ipam:
+
+The docker network create-ipam command is used to create a new `IP address management` (IPAM) configuration for a Docker network.
+
+IPAM allows you to define custom IP address ranges, `subnets`, `gateways`, and other network configurations.
+
+```
+docker network create-ipam --subnet=192.168.1.0/24 my-custom-network
+```
+
+In this example:
+
+- `--subnet=192.168.1.0/24` specifies the subnet for the new `IPAM` configuration. You can adjust the subnet to match your network requirements.
+- `my-custom-network` is the name given to the Docker network for which you are creating the custom `IPAM` configuration.
